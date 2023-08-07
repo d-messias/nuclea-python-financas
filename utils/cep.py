@@ -12,6 +12,7 @@ def searchCep(cep):
             adress = {
                 "CEP": re.sub(r'[\W_]+', '', data['cep']),
                 "Logradouro": data['logradouro'],
+                "Complemento": data['complemento'],
                 "Bairro": data['bairro'],
                 "Cidade": data['localidade'],
                 "Estado": data['uf']

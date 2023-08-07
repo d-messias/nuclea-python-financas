@@ -1,5 +1,5 @@
 from validate_docbr import CPF
-from utils.format_text import formatCPF
+# from utils.format_text import formatCPF
 
 def cpfValidator():
     validatedCpf = CPF()
@@ -9,7 +9,10 @@ def cpfValidator():
         cpf = input("CPF: ")
         validity = validatedCpf.validate(cpf)
         if validity:
-            return formatCPF(cpf)
+            if len(cpf) > 11:
+                return cpf
+            else:
+                return validatedCpf.mask(cpf)
         else:
             print("CPF inválido! Tente novamente:")
 

@@ -20,8 +20,10 @@ class Client:
             "dataNascimento": dateValidator(),
             "endereco": cepValidator(),
             "nrResidencia": input("Número da Casa: ")
+
         }
-        self.database.insert(self.cliente)
+        resultado = self.database.insert(self.cliente)
+        print(resultado)
 
     def consultarCliente(self):
         self.cpf = cpfValidator()
@@ -49,3 +51,4 @@ class Client:
         }
         print(self.cliente)
         self.database.delete(self.cliente)
+

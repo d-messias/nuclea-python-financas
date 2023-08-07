@@ -1,4 +1,4 @@
-from report.relatorio import obterDadosDaAcao
+from reports.relatorio import obterDadosDaAcao
 from repository.order_db import OrderDB
 from utils.cpf_validation import cpfValidator
 from utils.ticker_validation import tickerValidator

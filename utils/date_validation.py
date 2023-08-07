@@ -9,7 +9,7 @@ def dateValidator():
             nowDate = datetime.now().date()
 
             if formatedDate < nowDate:
-                return formatedDate.strftime("%d/%m/%Y")
+                return formatedDate.strftime("%Y-%m-%d")
             else:
                 print("A data não pode ser maior que a data de Hoje.")
         except ValueError:

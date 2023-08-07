@@ -32,14 +32,14 @@ class ClientDB(Connection):
                 cliente['nome'],
                 cliente['cpf'],
                 cliente['rg'],
-                cliente['data_nascimento'],
-                cliente['cep'],
-                cliente['logradouro'],
-                cliente['complemento'],
-                cliente['bairro'],
-                cliente['cidade'],
-                cliente['estado'],
-                cliente['nr_residencia']
+                cliente['dataNascimento'],
+                cliente['endereco']['CEP'],
+                cliente['endereco']['Logradouro'],
+                cliente['endereco']['Complemento'],
+                cliente['endereco']['Bairro'],
+                cliente['endereco']['Cidade'],
+                cliente['endereco']['Estado'],
+                cliente['nrResidencia']
             )
             self.cur.execute(sql_insert, values)
             self.connec.commit()
@@ -71,16 +71,16 @@ class ClientDB(Connection):
                          "complemento = %s, bairro = %s, cidade = %s, estado = %s, nr_residencia = %s WHERE cpf = %s"
             values = (
                 cliente['nome'],
+                cliente['cpf'],
                 cliente['rg'],
-                cliente['data_nascimento'],
-                cliente['cep'],
-                cliente['logradouro'],
-                cliente['complemento'],
-                cliente['bairro'],
-                cliente['cidade'],
-                cliente['estado'],
-                cliente['nr_residencia'],
-                cliente['cpf']
+                cliente['dataNascimento'],
+                cliente['endereco']['CEP'],
+                cliente['endereco']['Logradouro'],
+                cliente['endereco']['Complemento'],
+                cliente['endereco']['Bairro'],
+                cliente['endereco']['Cidade'],
+                cliente['endereco']['Estado'],
+                cliente['nrResidencia']
             )
             self.execute(sql_update, values)
             self.commit()
@@ -90,12 +90,15 @@ class ClientDB(Connection):
             print("Erro ao atualizar cliente: ", e)
             return False, "Erro ao atualizar cliente"
 
-# teste localhost para funcionamento do método "insert"
+
+
+
+## teste localhost para funcionamento do método "insert"
 # if __name__ == "__main__":
 #     client = ClientDB()
 #     cliente = {
-#         "nome": "Jorge",
-#         "cpf": "398.060.394-37",
+#         "nome": "Joao",
+#         "cpf": "498.060.394-37",
 #         "rg": "32.445.679-x",
 #         "data_nascimento": "2002-02-02",
 #         "cep": "50781290",
@@ -113,7 +116,7 @@ class ClientDB(Connection):
 #         print("Erro:", message)
 
 
-# teste localhost para funcionamento do método "update"
+## teste localhost para funcionamento do método "update"
 # if __name__ == "__main__":
 #     client = ClientDB()
 #     success, message = client.update("Daniel Messias da Silva", "12.345.678-x", "2002-02-02", "50781290", "Rua Barros Sobrinho",
